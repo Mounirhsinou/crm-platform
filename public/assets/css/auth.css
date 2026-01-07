@@ -1,0 +1,41 @@
+/* Auth Page Styles */
+
+body.bg-light {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.card {
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.text-primary {
+    color: #667eea !important;
+}
+
+a.text-primary:hover {
+    color: #764ba2 !important;
+}

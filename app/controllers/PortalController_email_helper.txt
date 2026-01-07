@@ -1,0 +1,39 @@
+
+    /**
+     * Helper: Send invoice email automatically after payment
+     */
+    private function sendInvoiceEmail($invoice)
+    {
+        try {
+            // Only send if client has email
+            if (empty($invoice['client_email'])) {
+                return;
+            }
+
+            // Get SMTP settings for the company
+            $smtpModel = $this->model('SmtpSetting');
+            $smtpSettings = $smtpModel->getByCompany($invoice['company_id']);
+
+            if (!$smtpSettings) {
+                // No SMTP configured, skip email
+                return;
+            }
+
+            // Prepare company data
+            $company = [
+                'name' => Branding::getCompanyName(),
+                'address' => Branding::getAddress(),
+                'phone' => Branding::getPhone()
+            ];
+
+            // Generate PDF
+            require_once APP_PATH . '/helpers/InvoiceMailer.php';
+            $pdfContent = InvoiceMailer::generatePdf($invoice, $company);
+
+            // Send email
+            InvoiceMailer::send($invoice, $invoice['client_email'], $smtpSettings, $pdfContent);
+        } catch (Exception $e) {
+            // Silently fail - don't block payment success
+            error_log('Failed to send invoice email: ' . $e->getMessage());
+        }
+    }

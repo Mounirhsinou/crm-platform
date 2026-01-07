@@ -1,0 +1,28 @@
+# Environment variables
+.env
+
+# Logs
+logs/*.log
+*.log
+
+# Uploads
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Dependencies
+vendor/
+node_modules/
+
+# IDE settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Temporary files
+tmp/
+temp/
