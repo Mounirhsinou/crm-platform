@@ -42,8 +42,8 @@ A lightweight, production-grade CRM system built with **Pure PHP (MVC architectu
 
 ### Step 1: Clone and Extract
 ```bash
-git clone https://github.com/yourusername/secure-crm.git
-# Move to your web server root (e.g. c:\xampp\htdocs\CRM)
+git clone https://github.com/Mounirhsinou/crm-platform.git
+# Move to your web server root 
 ```
 
 ### Step 2: Database Setup
